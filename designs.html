@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>รูปแบบดีไซน์และธีมตัวอย่าง (Website + Dashboard) | LAW FIRM SOLUTIONS</title>
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Link Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Custom Overrides for Designs Page -->
+  <style>
+    .designs-page-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      background: radial-gradient(circle at center bottom, rgba(245,201,107,0.06), transparent 50%), var(--bg-primary);
+    }
+    
+    .designs-page-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    
+    .designs-page-hero h1 span {
+      color: var(--primary);
+    }
+    
+    .designs-page-hero p {
+      color: var(--text-light);
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .designs-showcase-container {
+      padding: 60px 0 120px;
+    }
+
+    .design-action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .design-action-buttons .btn {
+      width: 100%;
+    }
+
+    .design-action-buttons .btn-outline {
+      width: 100%;
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+
+    .back-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 15px;
+      transition: var(--transition-fast);
+    }
+
+    .back-nav-link:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .designs-page-hero h1 {
+        font-size: 34px;
+      }
+      .designs-page-hero {
+        padding: 100px 0 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">⚖ LAW FIRM SOLUTIONS</a>
+
+      <div class="menu">
+        <a href="index.html" class="back-nav-link">← กลับหน้าหลัก</a>
+      </div>
+
+      <!-- Invoker command to show modal natively -->
+      <button commandfor="quote-dialog" command="show-modal" class="btn btn-nav-cta">ขอใบเสนอราคา</button>
+    </div>
+  </nav>
+
+  <!-- HERO HEADER -->
+  <header class="designs-page-hero">
+    <div class="container">
+      <div class="badge">แพ็กเกจ Website + Dashboard (14,900.-)</div>
+      <h1>รูปแบบดีไซน์และ<span>ธีมตัวอย่าง</span></h1>
+      <p>
+        คุณสามารถเลือกรูปแบบดีไซน์เว็บหน้าบ้านที่ตอบโจทย์สำนักงานของคุณมากที่สุด ทุกธีมได้รับการออกแบบให้แสดงผลหลังบ้าน Dashboard จำลองได้สวยงามตามเอกลักษณ์ของแต่ละโทนสี คลิกปุ่มพรีวิวเพื่อลองใช้งานระบบหลังบ้านจริง
+      </p>
+    </div>
+  </header>
+
+  <!-- DESIGNS GRID -->
+  <section class="designs-showcase-container">
+    <div class="container">
+      <div class="designs-grid">
+        
+        <!-- Theme 1 -->
+        <article class="design-card">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop" alt="Elegant Dark Gold Preview" />
+            <div class="design-overlay">
+              <a href="dashboard.html" class="btn btn-preview" target="_blank">ดูหน้าหลังบ้านของธีมนี้</a>
+            </div>
+          </div>
+          <div class="design-info">
+            <span class="design-tag luxury">Luxury Theme</span>
+            <h3>Elegant Dark Gold</h3>
+            <p>ดีไซน์สีดำสนิทตัดสีทองอร่าม ให้ความรู้สึกทรงพลัง มีระดับ และน่าเชื่อถือสูงสุด เหมาะกับสำนักงานขนาดใหญ่ คดีธุรกิจ หรือสำนักงานที่เน้นความพรีเมียม</p>
+            
+            <div class="design-action-buttons">
+              <a href="dashboard.html" class="btn-outline" target="_blank">👁 ทดลองเล่นแดชบอร์ดธีมนี้</a>
+              <button class="btn btn-select-theme" data-theme-name="Elegant Dark Gold">เลือกดีไซน์นี้และขอใบเสนอราคา</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Theme 2 -->
+        <article class="design-card">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=800&auto=format&fit=crop" alt="Clean Light Professional Preview" />
+            <div class="design-overlay">
+              <a href="dashboard.html?theme=light" class="btn btn-preview" target="_blank">ดูหน้าหลังบ้านของธีมนี้</a>
+            </div>
+          </div>
+          <div class="design-info">
+            <span class="design-tag professional">Professional Theme</span>
+            <h3>Clean Light Professional</h3>
+            <p>ดีไซน์สว่าง สะอาดตา ผสานคู่สีน้ำเงิน Navy และฟ้าคราม เน้นความทันสมัย เข้าถึงง่าย เป็นมิตร เหมาะสำหรับทนายยุคใหม่ คดีแพ่ง คดีครอบครัว</p>
+            
+            <div class="design-action-buttons">
+              <a href="dashboard.html?theme=light" class="btn-outline" target="_blank">👁 ทดลองเล่นแดชบอร์ดธีมนี้</a>
+              <button class="btn btn-select-theme" data-theme-name="Clean Light Professional">เลือกดีไซน์นี้และขอใบเสนอราคา</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Theme 3 -->
+        <article class="design-card">
+          <div class="design-image">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" alt="Classic Warm Cream Preview" />
+            <div class="design-overlay">
+              <a href="dashboard.html?theme=cream" class="btn btn-preview" target="_blank">ดูหน้าหลังบ้านของธีมนี้</a>
+            </div>
+          </div>
+          <div class="design-info">
+            <span class="design-tag traditional">Traditional Theme</span>
+            <h3>Classic Warm Cream</h3>
+            <p>ดีไซน์สีครีมงาช้างตัดกับขอบไม้สีน้ำตาลมะฮอกกานีและลายกระดาษโบราณ ให้ภาพลักษณ์ทนายความผู้มีความรู้ ประสบการณ์สูง และใส่ใจคดีท้องถิ่น</p>
+            
+            <div class="design-action-buttons">
+              <a href="dashboard.html?theme=cream" class="btn-outline" target="_blank">👁 ทดลองเล่นแดชบอร์ดธีมนี้</a>
+              <button class="btn btn-select-theme" data-theme-name="Classic Warm Cream">เลือกดีไซน์นี้และขอใบเสนอราคา</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 LAW FIRM SOLUTIONS — Professional Website & Dashboard. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL DIALOG (Lead Generation / Request Quote) -->
+  <dialog id="quote-dialog" closedby="any" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="dialog-title">⚖ ขอใบเสนอราคา / สั่งซื้อคัดเลือกดีไซน์</h2>
+        <button commandfor="quote-dialog" command="close" class="close-btn" aria-label="ปิดหน้าต่าง">&times;</button>
+      </div>
+      
+      <form class="quote-form" id="lead-form" method="dialog">
+        <div class="form-group">
+          <label for="client-name">ชื่อผู้ติดต่อ / ชื่อสำนักงาน *</label>
+          <input type="text" id="client-name" name="name" required placeholder="เช่น ทนายสมชาย รักความดี" />
+        </div>
+        
+        <div class="form-group">
+          <label for="client-phone">เบอร์โทรศัพท์ติดต่อ *</label>
+          <input type="tel" id="client-phone" name="phone" required placeholder="เช่น 081-234-5678" />
+        </div>
+
+        <div class="form-group">
+          <label for="client-email">อีเมลติดต่อ</label>
+          <input type="email" id="client-email" name="email" placeholder="เช่น client@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="package-select">แพ็กเกจที่ต้องการสั่งซื้อ</label>
+          <select id="package-select" name="package" required>
+            <option value="dashboard" selected>Website + Dashboard (14,900.-)</option>
+            <option value="landing">Landing Page (3,500.-)</option>
+            <option value="chatbot">Website + ChatBot (7,500.-)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="client-details">รายละเอียดและดีไซน์ที่เลือก *</label>
+          <textarea id="client-details" name="details" rows="3" required placeholder="ระบุสิ่งที่ต้องการเพิ่มเติม..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-submit">ส่งข้อมูลใบคำขอสั่งซื้อ</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Success Toast Alert -->
+  <div class="toast" id="toast-success" role="alert" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toast-text-msg">ส่งข้อมูลการสั่งซื้อสำเร็จ! เจ้าหน้าที่จะติดต่อกลับด่วนที่สุด</span>
+  </div>
+
+  <!-- Internal JavaScript module for self-contained interactions -->
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      const quoteDialog = document.getElementById('quote-dialog');
+      const leadForm = document.getElementById('lead-form');
+      const toastSuccess = document.getElementById('toast-success');
+      const toastTextMsg = document.getElementById('toast-text-msg');
+      const clientDetailsInput = document.getElementById('client-details');
+      const packageSelect = document.getElementById('package-select');
+
+      // Add click event to "Select Theme" buttons to open quote dialog and auto-fill details
+      const selectThemeBtns = document.querySelectorAll('.btn-select-theme');
+      selectThemeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const themeName = btn.getAttribute('data-theme-name');
+          
+          // Prefill text details
+          clientDetailsInput.value = `สนใจสั่งซื้อบริการออกแบบ ธีมดีไซน์ที่เลือก: ${themeName}`;
+          packageSelect.value = 'dashboard';
+          
+          // Open dialog modal natively
+          if (quoteDialog) {
+            quoteDialog.showModal();
+          }
+        });
+      });
+
+      // Unified event delegation fallback for Invokers
+      const supportsInvokers = 'commandForElement' in HTMLButtonElement.prototype;
+      if (!supportsInvokers) {
+        document.addEventListener('click', (event) => {
+          const button = event.target.closest('button[commandfor]');
+          if (!button) return;
+
+          const targetId = button.getAttribute('commandfor');
+          const target = document.getElementById(targetId);
+          const command = button.getAttribute('command');
+
+          if (target && command && target.tagName === 'DIALOG') {
+            if (command === 'show-modal') {
+              target.showModal();
+            } else if (command === 'close') {
+              target.close();
+            }
+          }
+        });
+      }
+
+      // Dialog closedby backdrop click fallback
+      const supportsClosedBy = 'closedBy' in HTMLDialogElement.prototype;
+      if (!supportsClosedBy && quoteDialog) {
+        quoteDialog.addEventListener('click', (event) => {
+          if (event.target !== quoteDialog) return;
+          const rect = quoteDialog.getBoundingClientRect();
+          const isInside = (
+            rect.top <= event.clientY &&
+            event.clientY <= rect.top + rect.height &&
+            rect.left <= event.clientX &&
+            event.clientX <= rect.left + rect.width
+          );
+          if (!isInside) {
+            quoteDialog.close();
+          }
+        });
+      }
+
+      // Form submit handler
+      if (leadForm && quoteDialog) {
+        leadForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const formData = new FormData(leadForm);
+          console.log('Submitted Request Quote:', {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            email: formData.get('email'),
+            package: formData.get('package'),
+            details: formData.get('details')
+          });
+
+          // Close modal & reset form
+          quoteDialog.close();
+          leadForm.reset();
+
+          // Show Success Toast
+          if (toastSuccess) {
+            toastSuccess.classList.add('show');
+            setTimeout(() => {
+              toastSuccess.classList.remove('show');
+            }, 4000);
+          }
+        });
+      }
+
+      // Cursor Light Hover Effect for Design cards
+      const cards = document.querySelectorAll('.design-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--x', `${x}px`);
+          card.style.setProperty('--y', `${y}px`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

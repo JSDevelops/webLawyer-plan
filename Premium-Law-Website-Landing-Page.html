@@ -1,0 +1,740 @@
+# Premium Law Firm Website Landing Page (HTML + CSS)
+
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Law Firm Website Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    body {
+      background: #050816;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      backdrop-filter: blur(15px);
+      background: rgba(5, 8, 22, 0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f5c96b;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+      color: #d1d5db;
+    }
+
+    .menu a:hover {
+      color: #f5c96b;
+    }
+
+    .btn {
+      background: linear-gradient(135deg,#f5c96b,#d6a63d);
+      color: black;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(245,201,107,0.35);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background:
+      radial-gradient(circle at top right, rgba(245,201,107,0.2), transparent 35%),
+      #050816;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      background: rgba(245,201,107,0.08);
+      border: 1px solid rgba(245,201,107,0.3);
+      border-radius: 50px;
+      color: #f5c96b;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #f5c96b;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      line-height: 1.9;
+      margin-bottom: 35px;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+      border-color: #f5c96b;
+      color: #f5c96b;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 32px;
+      border: 1px solid rgba(245,201,107,0.15);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title span {
+      color: #f5c96b;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 14px;
+    }
+
+    .section-title h2 {
+      font-size: 52px;
+      margin-top: 15px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 35px;
+      border-radius: 28px;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(245,201,107,0.4);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: rgba(245,201,107,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .feature-card p {
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+
+    /* PRICING */
+    .pricing {
+      padding: 100px 0;
+      background: linear-gradient(to bottom,#07101f,#050816);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 35px;
+    }
+
+    .price-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 34px;
+      overflow: hidden;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .price-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(245,201,107,0.5);
+    }
+
+    .popular {
+      border: 2px solid #f5c96b;
+      transform: scale(1.03);
+    }
+
+    .price-header {
+      padding: 40px;
+      background: rgba(245,201,107,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-header h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 58px;
+      font-weight: 800;
+      color: #f5c96b;
+    }
+
+    .price small {
+      font-size: 18px;
+      color: #cbd5e1;
+    }
+
+    .price-content {
+      padding: 40px;
+    }
+
+    .price-content ul {
+      list-style: none;
+      margin-bottom: 35px;
+    }
+
+    .price-content li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: #d1d5db;
+    }
+
+    .price-content li::before {
+      content: '✔';
+      color: #f5c96b;
+      margin-right: 12px;
+    }
+
+    .dashboard-preview {
+      margin-top: 20px;
+      background: #0f172a;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .dashboard-top {
+      padding: 14px;
+      background: #020617;
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .red { background: #ef4444; }
+    .yellow { background: #f59e0b; }
+    .green { background: #22c55e; }
+
+    .dashboard-body {
+      padding: 25px;
+    }
+
+    .dashboard-boxes {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 15px;
+    }
+
+    .dashboard-box {
+      background: rgba(255,255,255,0.04);
+      padding: 20px;
+      border-radius: 18px;
+    }
+
+    .dashboard-box h4 {
+      color: #f5c96b;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .dashboard-box p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg,rgba(245,201,107,0.12),rgba(255,255,255,0.03));
+      border: 1px solid rgba(245,201,107,0.15);
+      padding: 80px;
+      border-radius: 40px;
+    }
+
+    .cta h2 {
+      font-size: 58px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #cbd5e1;
+      max-width: 800px;
+      margin: auto auto 40px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 30px 0;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    /* MOBILE */
+    @media(max-width: 980px){
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .section-title h2 {
+        font-size: 38px;
+      }
+
+      .cta h2 {
+        font-size: 42px;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">⚖ LAW FIRM SOLUTIONS</div>
+
+      <div class="menu">
+        <a href="#">หน้าแรก</a>
+        <a href="#">แพ็กเกจ</a>
+        <a href="#">Dashboard</a>
+        <a href="#">บริการ</a>
+        <a href="#">ติดต่อ</a>
+      </div>
+
+      <a href="#" class="btn">ขอใบเสนอราคา</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">เว็บไซต์สำนักงานกฎหมายระดับมืออาชีพ</div>
+
+        <h1>
+          เว็บไซต์ + Dashboard
+          <span>ครบวงจร</span>
+        </h1>
+
+        <p>
+          รับออกแบบเว็บไซต์สำนักงานกฎหมาย พร้อมระบบหลังบ้าน Dashboard
+          ระบบลูกค้า ระบบคดี SEO Google เชื่อม LINE OA และ ChatBot API
+          รองรับมือถือ โหลดเร็ว ดีไซน์พรีเมียม
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#pricing" class="btn">ดูแพ็กเกจราคา</a>
+          <a href="#" class="btn-outline">ดูตัวอย่าง Dashboard</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1400&auto=format&fit=crop" alt="Law Firm Website" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <span>WHY CHOOSE US</span>
+        <h2>จุดเด่นของระบบ</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚖</div>
+          <h3>ดีไซน์พรีเมียม</h3>
+          <p>ออกแบบ Modern Luxury สำหรับสำนักงานกฎหมายโดยเฉพาะ</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Responsive</h3>
+          <p>รองรับมือถือ Tablet และ Desktop ทุกอุปกรณ์</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>SEO ฟรี</h3>
+          <p>ช่วยติด Google พร้อม Technical SEO และ Blog SEO</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>LINE ChatBot</h3>
+          <p>เชื่อม LINE OA และระบบตอบกลับอัตโนมัติ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <span>PRICING PLAN</span>
+        <h2>แพ็กเกจเว็บไซต์</h2>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- PACKAGE 1 -->
+        <div class="price-card">
+          <div class="price-header">
+            <h3>Landing Page</h3>
+            <div class="price">3,500.-</div>
+            <small>พร้อมโดเมน 1 ปี</small>
+          </div>
+
+          <div class="price-content">
+            <ul>
+              <li>เว็บไซต์หน้าเดียว</li>
+              <li>Responsive มือถือ</li>
+              <li>Google Maps</li>
+              <li>เชื่อม LINE OA</li>
+              <li>SEO พื้นฐานฟรี</li>
+              <li>โหลดเร็ว</li>
+            </ul>
+
+            <div class="dashboard-preview">
+              <div class="dashboard-top">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+              </div>
+
+              <div class="dashboard-body">
+                <div class="dashboard-boxes">
+                  <div class="dashboard-box">
+                    <h4>12</h4>
+                    <p>Lead</p>
+                  </div>
+
+                  <div class="dashboard-box">
+                    <h4>24</h4>
+                    <p>Visitors</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <a href="#" class="btn">เลือกแพ็กเกจ</a>
+          </div>
+        </div>
+
+        <!-- PACKAGE 2 -->
+        <div class="price-card popular">
+          <div class="price-header">
+            <h3>Website + ChatBot</h3>
+            <div class="price">7,500.-</div>
+            <small>พร้อมโดเมน 1 ปี</small>
+          </div>
+
+          <div class="price-content">
+            <ul>
+              <li>เว็บไซต์หลายหน้า</li>
+              <li>ระบบ ChatBot LINE API</li>
+              <li>เชื่อม LINE OA</li>
+              <li>Google Maps</li>
+              <li>SEO ฟรี</li>
+              <li>*ไม่รวมค่า API LINE</li>
+            </ul>
+
+            <div class="dashboard-preview">
+              <div class="dashboard-top">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+              </div>
+
+              <div class="dashboard-body">
+                <div class="dashboard-boxes">
+                  <div class="dashboard-box">
+                    <h4>128</h4>
+                    <p>Chats</p>
+                  </div>
+
+                  <div class="dashboard-box">
+                    <h4>89%</h4>
+                    <p>Response</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <a href="#" class="btn">เลือกแพ็กเกจ</a>
+          </div>
+        </div>
+
+        <!-- PACKAGE 3 -->
+        <div class="price-card">
+          <div class="price-header">
+            <h3>Website + Dashboard</h3>
+            <div class="price">14,900.-</div>
+            <small>โดเมน + Storage 2TB</small>
+          </div>
+
+          <div class="price-content">
+            <ul>
+              <li>Dashboard จัดการลูกค้า</li>
+              <li>เขียนบทความ Blog</li>
+              <li>Social Integration</li>
+              <li>ระบบคดี / นัดหมาย</li>
+              <li>ChatBot API</li>
+              <li>SEO ทุกหน้า ฟรี</li>
+            </ul>
+
+            <div class="dashboard-preview">
+              <div class="dashboard-top">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+              </div>
+
+              <div class="dashboard-body">
+                <div class="dashboard-boxes">
+                  <div class="dashboard-box">
+                    <h4>1,204</h4>
+                    <p>Clients</p>
+                  </div>
+
+                  <div class="dashboard-box">
+                    <h4>542</h4>
+                    <p>Cases</p>
+                  </div>
+
+                  <div class="dashboard-box">
+                    <h4>98%</h4>
+                    <p>SEO Score</p>
+                  </div>
+
+                  <div class="dashboard-box">
+                    <h4>2TB</h4>
+                    <p>Storage</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <a href="#" class="btn">เลือกแพ็กเกจ</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>เริ่มต้นเว็บไซต์สำนักงานกฎหมายของคุณวันนี้</h2>
+
+        <p>
+          เว็บไซต์ระดับมืออาชีพ พร้อม Dashboard ระบบหลังบ้าน เชื่อม LINE OA
+          SEO ฟรี รองรับการเติบโตของสำนักงานกฎหมายในยุคดิจิทัล
+        </p>
+
+        <a href="#" class="btn">ติดต่อสอบถามเพิ่มเติม</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 LAW FIRM SOLUTIONS — Professional Website & Dashboard
+  </footer>
+
+</body>
+</html>
+```
+
+---
+
+# จุดเด่นของ Template นี้
+
+* Premium Dark Luxury Design
+* Responsive Mobile
+* Pricing Plan UI
+* Dashboard Preview
+* Modern CSS
+* รองรับ SEO
+* พร้อมต่อยอด React / Laravel
+* ใช้งานจริงได้
+* เหมาะสำหรับยิง Ads และ Landing Page
+
+---
+
+# แนะนำการต่อยอด
+
+## Frontend
+
+* Next.js
+* TailwindCSS
+* Framer Motion
+
+## Backend
+
+* Laravel API
+* MySQL
+
+## Dashboard
+
+* FilamentPHP
+* Laravel Admin
+
+---
+
+# ฟีเจอร์ที่สามารถเพิ่มได้
+
+* ระบบ Login
+* ระบบลูกค้า
+* ระบบคดี
+* AI ChatBot
+* Google Analytics
+* Facebook Pixel
+* Payment Gateway
+* Blog CMS
+* LINE Notify
+* ระบบนัดหมาย
+
+---
+
+# แนะนำโครงสร้างไฟล์
+
+```bash
+project/
+├── index.html
+├── css/
+├── js/
+├── images/
+├── dashboard/
+└── api/
+```

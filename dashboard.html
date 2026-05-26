@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบหลังบ้านทนายความ (Dashboard Demo) | LAW FIRM SOLUTIONS</title>
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS for Dashboard -->
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="theme-dark-gold">
+
+  <div class="dashboard-wrapper">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-logo-icon">⚖</span>
+        <span class="sidebar-logo-text">LAW BACKEND</span>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <button class="menu-item active" data-tab="overview">
+          <span class="menu-icon">📊</span> ภาพรวมระบบ
+        </button>
+        <button class="menu-item" data-tab="clients">
+          <span class="menu-icon">👥</span> จัดการรายชื่อลูกค้า
+        </button>
+        <button class="menu-item" data-tab="cases">
+          <span class="menu-icon">📁</span> ติดตามสถานะคดี
+        </button>
+        <button class="menu-item" data-tab="settings">
+          <span class="menu-icon">🎨</span> ทดลองเปลี่ยนธีมสี
+        </button>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <a href="index.html" class="btn-back-home">← กลับหน้าหลักแลนดิ้ง</a>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="main-content">
+      
+      <!-- TOP NAVIGATION BAR -->
+      <header class="top-nav">
+        <div class="top-nav-left">
+          <button class="sidebar-toggle" id="sidebar-toggle" aria-label="เปิดเมนูนำทาง">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <h1 class="page-title" id="page-title">ภาพรวมระบบ (Overview)</h1>
+        </div>
+        
+        <div class="top-nav-right">
+          <div class="profile-badge">
+            <span class="avatar">👨‍⚖️</span>
+            <div class="profile-info">
+              <span class="profile-name">ทนายสมชาย รักความดี</span>
+              <span class="profile-role">ผู้ดูแลระบบ</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT PANELS -->
+      <div class="content-body">
+
+        <!-- PANEL 1: OVERVIEW -->
+        <section class="tab-panel active" id="panel-overview">
+          
+          <!-- Stat Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">👥</div>
+              <div class="stat-data">
+                <h3>จำนวนลูกค้าทั้งหมด</h3>
+                <p class="stat-value" id="count-clients">142 คน</p>
+                <span class="stat-trend up">↑ +12% เดือนนี้</span>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon">📁</div>
+              <div class="stat-data">
+                <h3>คดีความที่ดูแลอยู่</h3>
+                <p class="stat-value" id="count-cases">38 คดี</p>
+                <span class="stat-trend neutral">คงที่จากสัปดาห์ก่อน</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">📅</div>
+              <div class="stat-data">
+                <h3>นัดหมายในเดือนนี้</h3>
+                <p class="stat-value">18 นัด</p>
+                <span class="stat-trend down">↓ -3 นัดสัปดาห์นี้</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">🏆</div>
+              <div class="stat-data">
+                <h3>อัตราการชนะคดี</h3>
+                <p class="stat-value">94%</p>
+                <span class="stat-trend up">↑ เพิ่มขึ้น 2%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overview Layout Charts and Tasks -->
+          <div class="overview-grid">
+            
+            <!-- Case Distribution Chart -->
+            <div class="dashboard-card">
+              <h2 class="card-title">สัดส่วนประเภทคดีความ</h2>
+              <div class="chart-container">
+                <!-- Bar Chart Custom Styled via CSS -->
+                <div class="bar-chart">
+                  <div class="chart-bar-group">
+                    <div class="bar-label">คดีอาญา</div>
+                    <div class="bar-wrapper">
+                      <div class="bar-fill" style="width: 45%;" data-value="45%"></div>
+                    </div>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="bar-label">คดีแพ่ง</div>
+                    <div class="bar-wrapper">
+                      <div class="bar-fill" style="width: 65%;" data-value="65%"></div>
+                    </div>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="bar-label">คดีที่ดิน</div>
+                    <div class="bar-wrapper">
+                      <div class="bar-fill" style="width: 30%;" data-value="30%"></div>
+                    </div>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="bar-label">คดีมรดก / ครอบครัว</div>
+                    <div class="bar-wrapper">
+                      <div class="bar-fill" style="width: 80%;" data-value="80%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity Timeline -->
+            <div class="dashboard-card">
+              <h2 class="card-title">ประวัติการทำกิจกรรมล่าสุด</h2>
+              <ul class="activity-list">
+                <li>
+                  <span class="activity-dot blue"></span>
+                  <div class="activity-details">
+                    <span class="activity-time">10:45 น. วันนี้</span>
+                    <p>ทนายสมชาย เพิ่มลูกค้ารายใหม่: <strong>คุณสมโชค ดีเด่น</strong> (ประเภทคดี: คดีแพ่ง)</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="activity-dot gold"></span>
+                  <div class="activity-details">
+                    <span class="activity-time">09:00 น. วันนี้</span>
+                    <p>ระบบแจ้งเตือน: <strong>ศาลนัดไต่สวนมูลฟ้อง</strong> คดีผิดสัญญากู้ยืมเงินคุณอารีย์ วันพรุ่งนี้เวลา 09:30 น.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="activity-dot green"></span>
+                  <div class="activity-details">
+                    <span class="activity-time">เมื่อวานนี้</span>
+                    <p>ศาลมีคำพิพากษา: <strong>ชนะคดีข้อพิพาทมรดก</strong> ครอบครัวคุณปรีชา (ปิดสถานะคดีเรียบร้อย)</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- PANEL 2: CLIENTS -->
+        <section class="tab-panel" id="panel-clients">
+          <div class="dashboard-card">
+            <div class="card-header-actions">
+              <h2 class="card-title">รายชื่อผู้ติดต่อและลูกค้า</h2>
+              <!-- Natively opens client add modal using commandfor -->
+              <button commandfor="add-client-dialog" command="show-modal" class="btn btn-add-client">+ เพิ่มรายชื่อลูกค้า</button>
+            </div>
+            
+            <div class="table-container">
+              <table class="data-table" id="clients-table">
+                <thead>
+                  <tr>
+                    <th>รหัสลูกค้า</th>
+                    <th>ชื่อ - นามสกุล</th>
+                    <th>ประเภทคดี</th>
+                    <th>เบอร์โทรศัพท์</th>
+                    <th>สถานะ</th>
+                    <th>คดีความ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>C-0101</td>
+                    <td>คุณสมเจตน์ รักสงบ</td>
+                    <td>คดีอาญา</td>
+                    <td>081-999-8888</td>
+                    <td><span class="status-badge status-active">คดีดำเนินอยู่</span></td>
+                    <td><button class="btn-table-action view-case-btn" data-case-id="101">ส่องสถานะคดี</button></td>
+                  </tr>
+                  <tr>
+                    <td>C-0102</td>
+                    <td>คุณวิภาดา กิ่งทอง</td>
+                    <td>คดีแพ่ง</td>
+                    <td>082-555-4444</td>
+                    <td><span class="status-badge status-active">คดีดำเนินอยู่</span></td>
+                    <td><button class="btn-table-action view-case-btn" data-case-id="102">ส่องสถานะคดี</button></td>
+                  </tr>
+                  <tr>
+                    <td>C-0103</td>
+                    <td>คุณสุนทร ประชาราษฎร์</td>
+                    <td>คดีที่ดิน</td>
+                    <td>083-444-1111</td>
+                    <td><span class="status-badge status-closed">ปิดคดีแล้ว</span></td>
+                    <td><button class="btn-table-action view-case-btn" data-case-id="103">ส่องสถานะคดี</button></td>
+                  </tr>
+                  <tr>
+                    <td>C-0104</td>
+                    <td>คุณนารี สมบูรณ์ทรัพย์</td>
+                    <td>คดีมรดก / ครอบครัว</td>
+                    <td>089-111-2222</td>
+                    <td><span class="status-badge status-active">คดีดำเนินอยู่</span></td>
+                    <td><button class="btn-table-action view-case-btn" data-case-id="104">ส่องสถานะคดี</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- PANEL 3: CASE TRACKER -->
+        <section class="tab-panel" id="panel-cases">
+          <div class="tracker-layout">
+            
+            <!-- Left Side: Select Case -->
+            <div class="dashboard-card tracker-cases-list">
+              <h2 class="card-title">เลือกคดีความเพื่อตรวจสอบ</h2>
+              <div class="case-list-selector">
+                <button class="case-select-item active" data-case="101" data-client="คุณสมเจตน์ รักสงบ" data-type="คดีอาญา (หมิ่นประมาท)">
+                  <span class="case-number">คดีเลขที่ C-0101</span>
+                  <h4>คุณสมเจตน์ รักสงบ</h4>
+                  <small>สถานะปัจจุบัน: กำลังสืบพยาน</small>
+                </button>
+                <button class="case-select-item" data-case="102" data-client="คุณวิภาดา กิ่งทอง" data-type="คดีแพ่ง (กู้เงิน)">
+                  <span class="case-number">คดีเลขที่ C-0102</span>
+                  <h4>คุณวิภาดา กิ่งทอง</h4>
+                  <small>สถานะปัจจุบัน: ไกล่เกลี่ยพยาน</small>
+                </button>
+                <button class="case-select-item" data-case="103" data-client="คุณสุนทร ประชาราษฎร์" data-type="คดีที่ดิน (บุกรุก)">
+                  <span class="case-number">คดีเลขที่ C-0103</span>
+                  <h4>คุณสุนทร ประชาราษฎร์</h4>
+                  <small>สถานะปัจจุบัน: ศาลมีคำพิพากษา</small>
+                </button>
+                <button class="case-select-item" data-case="104" data-client="คุณนารี สมบูรณ์ทรัพย์" data-type="คดีมรดก (มรดกพินัยกรรม)">
+                  <span class="case-number">คดีเลขที่ C-0104</span>
+                  <h4>คุณนารี สมบูรณ์ทรัพย์</h4>
+                  <small>สถานะปัจจุบัน: ยื่นคำร้องขอฟ้องร้อง</small>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Side: Display timeline -->
+            <div class="dashboard-card tracker-case-details">
+              <h2 class="card-title">ไทม์ไลน์สถานะทางกฎหมาย</h2>
+              
+              <div class="case-meta-box">
+                <div class="meta-item">
+                  <strong>ชื่อคดี:</strong>
+                  <span id="case-detail-client">คุณสมเจตน์ รักสงบ</span>
+                </div>
+                <div class="meta-item">
+                  <strong>ประเภทคดี:</strong>
+                  <span id="case-detail-type">คดีอาญา (หมิ่นประมาท)</span>
+                </div>
+              </div>
+
+              <!-- Interactive Case Timeline Steps -->
+              <div class="timeline-steps" id="timeline-steps">
+                
+                <div class="step-item completed" data-step="1">
+                  <div class="step-icon">✔</div>
+                  <div class="step-details">
+                    <h4>ขั้นตอนที่ 1: ยื่นคำฟ้อง / คำร้องขอฟ้องร้อง</h4>
+                    <p>ร่างเอกสารทางกฎหมายและส่งฟ้องต่อศาลเรียบร้อยแล้ว</p>
+                  </div>
+                </div>
+
+                <div class="step-item completed" data-step="2">
+                  <div class="step-icon">✔</div>
+                  <div class="step-details">
+                    <h4>ขั้นตอนที่ 2: ไกล่เกลี่ยคดีความ / ไต่สวนมูลฟ้อง</h4>
+                    <p>เจรจาเบื้องต้นและยื่นหลักฐานประกอบการฟ้องร้อง</p>
+                  </div>
+                </div>
+
+                <div class="step-item active" data-step="3">
+                  <div class="step-icon">3</div>
+                  <div class="step-details">
+                    <h4>ขั้นตอนที่ 3: สืบพยานฝ่ายโจทก์และจำเลย</h4>
+                    <p>กระบวนการยื่นข้อมูลและตรวจพยานหลักฐานในชั้นศาล</p>
+                  </div>
+                </div>
+
+                <div class="step-item" data-step="4">
+                  <div class="step-icon">4</div>
+                  <div class="step-details">
+                    <h4>ขั้นตอนที่ 4: ศาลอ่านคำพิพากษาคดี</h4>
+                    <p>การตัดสินของศาลและการปิดสำนวนคดีความอย่างเป็นทางการ</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Dynamic Simulation Action to wow the client -->
+              <div class="simulator-actions">
+                <span>ลองจำลอง: อัปเดตสถานะความคืบหน้าของคดีนี้ด้านล่าง</span>
+                <div class="simulator-buttons">
+                  <button class="btn btn-sim-step" data-target-step="1">ปรับเป็น ขั้นตอน 1</button>
+                  <button class="btn btn-sim-step" data-target-step="2">ปรับเป็น ขั้นตอน 2</button>
+                  <button class="btn btn-sim-step" data-target-step="3">ปรับเป็น ขั้นตอน 3</button>
+                  <button class="btn btn-sim-step" data-target-step="4">ปรับเป็น ขั้นตอน 4</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- PANEL 4: SETTINGS (Theme switcher showcase) -->
+        <section class="tab-panel" id="panel-settings">
+          <div class="dashboard-card settings-theme-switcher">
+            <h2 class="card-title">เลือกเปลี่ยนสีธีมระบบ Dashboard หลังบ้าน</h2>
+            <p>เพื่อนำเสนอความยืดหยุ่นให้ลูกค้าของคุณ คุณสามารถลองสลับสีการแสดงผลแดชบอร์ดด้านล่างนี้ได้แบบเรียลไทม์:</p>
+            
+            <div class="theme-buttons-container">
+              <button class="btn-theme-selector active" data-theme="theme-dark-gold">
+                <div class="theme-color-preview" style="background-color: #050816; border: 2px solid #f5c96b;"></div>
+                <h4>Elegant Dark Gold</h4>
+                <p>ธีมสีเข้มและทองพรีเมียม (ธีมเริ่มต้น)</p>
+              </button>
+
+              <button class="btn-theme-selector" data-theme="theme-light-blue">
+                <div class="theme-color-preview" style="background-color: #f8fafc; border: 2px solid #3b82f6;"></div>
+                <h4>Clean Light Professional</h4>
+                <p>ธีมสีสว่าง น้ำเงินและฟ้าดูสะอาดตา</p>
+              </button>
+
+              <button class="btn-theme-selector" data-theme="theme-warm-cream">
+                <div class="theme-color-preview" style="background-color: #fafaf9; border: 2px solid #d97706;"></div>
+                <h4>Classic Warm Cream</h4>
+                <p>ธีมสีครีมงาช้างและสีน้ำตาลมะฮอกกานี</p>
+              </button>
+            </div>
+            
+            <div class="theme-explainer-box">
+              <h3>💡 ระบบสแต็กเทมเพลตพร้อมใช้งาน</h3>
+              <p>ระบบนี้รองรับสลับสไตล์แบบครอบคลุมทั้งตัวแปรของ CSS และความเร็วในการแสดงผล ทำให้สำนักงานกฎหมายสามารถปรับโหมดให้เหมาะกับคอมพิวเตอร์และตัวทนายความได้อย่างยอดเยี่ยม!</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ADD CLIENT MODAL DIALOG -->
+  <dialog id="add-client-dialog" closedby="any" aria-labelledby="add-client-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 id="add-client-title">👥 เพิ่มข้อมูลลูกค้าใหม่</h2>
+        <button commandfor="add-client-dialog" command="close" class="close-btn" aria-label="ปิดหน้าต่าง">&times;</button>
+      </div>
+      
+      <form class="quote-form" id="add-client-form" method="dialog">
+        <div class="form-group">
+          <label for="new-client-name">ชื่อ - นามสกุล *</label>
+          <input type="text" id="new-client-name" name="name" required placeholder="เช่น คุณสมศักดิ์ มั่งคั่ง" />
+        </div>
+        
+        <div class="form-group">
+          <label for="new-client-phone">เบอร์โทรศัพท์ *</label>
+          <input type="tel" id="new-client-phone" name="phone" required placeholder="เช่น 089-777-6666" />
+        </div>
+
+        <div class="form-group">
+          <label for="new-client-type">ประเภทคดีความ *</label>
+          <select id="new-client-type" name="type" required>
+            <option value="" disabled selected>เลือกประเภทคดีความ</option>
+            <option value="คดีอาญา">คดีอาญา</option>
+            <option value="คดีแพ่ง">คดีแพ่ง</option>
+            <option value="คดีที่ดิน">คดีที่ดิน</option>
+            <option value="คดีมรดก / ครอบครัว">คดีมรดก / ครอบครัว</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-submit">บันทึกข้อมูลลูกค้า</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Success Toast Alert -->
+  <div class="toast" id="toast-success" role="alert" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toast-message">บันทึกข้อมูลและอัปเดตสถิติเรียบร้อย!</span>
+  </div>
+
+  <!-- Custom JS for Dashboard -->
+  <script src="js/dashboard.js" type="module"></script>
+</body>
+</html>
