@@ -627,23 +627,23 @@
       </div>
 
       <div class="preview-contact-box">
-        <form class="preview-form" onsubmit="event.preventDefault(); alert('ระบบจำลองส่งคำขอสำเร็จแล้ว!');">
+        <form class="preview-form" id="preview-contact-form">
           <div class="preview-form-group">
             <label>ชื่อผู้ติดต่อ *</label>
-            <input type="text" required placeholder="กรุณากรอกชื่อของคุณ" />
+            <input type="text" id="prev-name" required placeholder="กรุณากรอกชื่อของคุณ" />
           </div>
           
           <div class="preview-form-group">
             <label>ช่องทางการติดต่อ (เบอร์โทรศัพท์/อีเมล) *</label>
-            <input type="text" required placeholder="ระบุเบอร์โทรศัพท์ติดต่อ" />
+            <input type="text" id="prev-contact" required placeholder="ระบุเบอร์โทรศัพท์ติดต่อ" />
           </div>
 
           <div class="preview-form-group">
             <label>เรื่องที่ต้องการปรึกษาคดีความ *</label>
-            <textarea rows="4" required placeholder="อธิบายปัญหาทางกฎหมายของคุณเบื้องต้น..."></textarea>
+            <textarea rows="4" id="prev-message" required placeholder="อธิบายปัญหาทางกฎหมายของคุณเบื้องต้น..."></textarea>
           </div>
 
-          <button type="submit" class="btn-preview-cta" style="width: 100%; margin-top: 10px;">ส่งคำขอปรึกษาคดี</button>
+          <button type="submit" id="prev-submit-btn" class="btn-preview-cta" style="width: 100%; margin-top: 10px;">ส่งคำขอปรึกษาคดี</button>
         </form>
       </div>
     </div>
@@ -656,8 +656,31 @@
     </div>
   </footer>
 
+  <!-- Preview Toast Notification -->
+  <div id="preview-toast" style="
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #10b981;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Prompt', sans-serif;
+    z-index: 9999;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  " role="alert">
+    ✓ ส่งคำขอสำเร็จ! ทนายความจะติดต่อกลับโดยเร็ว
+  </div>
+
   <!-- Theme switching logic script -->
   <script type="module">
+    import { GOOGLE_SCRIPT_URL } from './js/config.js';
     document.addEventListener('DOMContentLoaded', () => {
       const buttons = document.querySelectorAll('.theme-switch-btn');
       const themesList = [
@@ -705,8 +728,60 @@
         'heritage-green': 'theme-heritage-green'
       };
 
+      // Apply theme from URL param
       if (themeParam && urlMapping[themeParam]) {
         applyTheme(urlMapping[themeParam]);
+      }
+
+      // Preview Contact Form submit → Google Sheets
+      const previewContactForm = document.getElementById('preview-contact-form');
+      const previewToast = document.getElementById('preview-toast');
+
+      if (previewContactForm) {
+        previewContactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const submitBtn = document.getElementById('prev-submit-btn');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'กำลังส่ง...';
+
+          // Detect active theme
+          const activeTheme = [...document.body.classList].find(c => c.startsWith('theme-')) || 'unknown';
+
+          const payload = new URLSearchParams({
+            source: 'landing-preview-form',
+            theme: activeTheme,
+            name: document.getElementById('prev-name')?.value || '',
+            phone: document.getElementById('prev-contact')?.value || '',
+            message: document.getElementById('prev-message')?.value || '',
+            timestamp: new Date().toLocaleString('th-TH')
+          });
+
+          if (GOOGLE_SCRIPT_URL) {
+            try {
+              await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: payload.toString()
+              });
+            } catch (err) {
+              console.warn('Preview form Sheets error (non-critical):', err);
+            }
+          }
+
+          previewContactForm.reset();
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'ส่งคำขอปรึกษาคดี';
+
+          if (previewToast) {
+            previewToast.style.opacity = '1';
+            previewToast.style.transform = 'translateX(-50%) translateY(0)';
+            setTimeout(() => {
+              previewToast.style.opacity = '0';
+              previewToast.style.transform = 'translateX(-50%) translateY(100px)';
+            }, 4000);
+          }
+        });
       }
     });
   </script>

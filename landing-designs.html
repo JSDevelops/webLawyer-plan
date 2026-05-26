@@ -327,6 +327,7 @@
 
   <!-- Internal JavaScript module for self-contained interactions -->
   <script type="module">
+    import { GOOGLE_SCRIPT_URL } from './js/config.js';
     document.addEventListener('DOMContentLoaded', () => {
       const quoteDialog = document.getElementById('quote-dialog');
       const leadForm = document.getElementById('lead-form');
@@ -392,28 +393,51 @@
 
       // Form submit handler
       if (leadForm && quoteDialog) {
-        leadForm.addEventListener('submit', (e) => {
+        leadForm.addEventListener('submit', async (e) => {
           e.preventDefault();
 
+          const submitBtn = leadForm.querySelector('[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'กำลังส่ง...';
+
           const formData = new FormData(leadForm);
-          console.log('Submitted Landing Quote:', {
-            name: formData.get('name'),
-            phone: formData.get('phone'),
-            email: formData.get('email'),
-            package: formData.get('package'),
-            details: formData.get('details')
+          const payload = new URLSearchParams({
+            source: 'landing-designs-page',
+            name: formData.get('name') || '',
+            phone: formData.get('phone') || '',
+            email: formData.get('email') || '',
+            package: formData.get('package') || '',
+            details: formData.get('details') || '',
+            timestamp: new Date().toLocaleString('th-TH')
           });
+
+          if (GOOGLE_SCRIPT_URL) {
+            try {
+              await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: payload.toString()
+              });
+            } catch (err) {
+              console.warn('Sheets submit error (non-critical):', err);
+            }
+          } else {
+            console.warn('GOOGLE_SCRIPT_URL ยังไม่ได้กำหนดใน config.js');
+          }
 
           // Close modal & reset form
           quoteDialog.close();
           leadForm.reset();
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'ส่งข้อมูลคำขอสั่งซื้อ';
 
           // Show Success Toast
           if (toastSuccess) {
             toastSuccess.classList.add('show');
             setTimeout(() => {
               toastSuccess.classList.remove('show');
-            }, 4000);
+            }, 4500);
           }
         });
       }
